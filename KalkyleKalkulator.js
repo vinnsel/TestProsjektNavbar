@@ -16,7 +16,7 @@ const vare2 = {
 }
 */
 
-//array for varer
+//array for kunder
 let kunder = [
     {
         kundeid: 1,
@@ -37,8 +37,10 @@ let kunder = [
         artikler: [2, 3, 5]
     }
 ]
-// console.log(kunder[1].navn)
+//  console.log(kunder)
+//  console.log(kunder[1].navn)
 
+//array for varer
 let varer = [
     {  
     artikkelid: 1,    
@@ -77,77 +79,7 @@ let varer = [
 }
 ]
 
-for (let i=0; i < varer.length; i++) {
-// console.log(varer[i].artikkelid)
-// console.log(varer[i].artikkel)
-
-}
-
-// looper gjennom kunders artikler
-for (let i=0; i < kunder.length; i++) {
-//    console.log(kunder[i].kundeid)
-    console.log('Navn på kunde: ' + kunder[i].navn + '')
-//    console.log(kunder[i].artikler) 
-    let kundeArtikkelId = kunder[i].artikler
-//    console.log(kundeArtikkelId.length)
-
-    for (let i=0; i < kundeArtikkelId.length; i++) {
-//    console.log(kundeArtikkelId[i])
-        let ifKundeArtikkelId = kundeArtikkelId[i]
-    for (let i=0; i < varer.length; i++) {
-        let ifVareArtikkelId = varer[i].artikkelid
-        let vareArtikkel = varer[i].artikkel
-        let varePris = varer[i].pris
-        if (ifKundeArtikkelId == ifVareArtikkelId ){
-//          console.log(true)
-//            console.log(ifKundeArtikkelId)
-//            console.log(ifVareArtikkelId)
-            console.log('Produkt kjøpt: ' + vareArtikkel + ', Pris: ' + varePris + '')
-
-        }
-        else
-        {
- //           console.log(false)
- //           console.log(ifKundeArtikkel)
- //           console.log(ifVareArtikkel)
-        }
-
-//        console.log(varer[i].artikkelid)
-//        console.log(varer[i].artikkel)
-        
-        }
-
-}
-
-
-
-
-    }
-/*    
-if (artikkelId = vareArtikkel ){
-    console.log(true)
-}
-else{
-    console.log(false)
-}
-        
-*/
-
-// looper gjennom kunders artikler
-for (let i=0; i < kunder.length; i++) {
-//    console.log(kunder[i].navn)
-//    console.log(kunder[i].artikler)
-    let vareKunde = kunder[i].navn
-    let vareArtikkel = kunder[i].artikler
-//    console.log(vareKunde, vareArtikkel)
-    }
-
-
-
-
-
-
-
+// KALKYLEKALKULATOR
 // Regner om desimaler
 function noDecimal(ingenDesimaler) {
     return Number.parseFloat(ingenDesimaler).toFixed(0);
@@ -173,7 +105,7 @@ function kalkyle(artikkel, kostPris, veilPris, rabatt) {
     const dekningsbidragProsent = dekningsbidragKr / prisEtterMva
     
 
-//    console.log('Salgspris på ' + artikkel + ' ' + veilPris + ',-')
+    console.log('Salgspris på ' + artikkel + ' ' + veilPris + ',-')
 //    console.log('Rabattprosent, desimal ' + toDecimal(rabattProsentDesimal) + '')
 //    console.log('Betaltprosent, desimal ' + toDecimal(betaltDesimal) + '')
 //    console.log('Pris etter rabatt ' + noDecimal(etterRabatt) + ',-')
