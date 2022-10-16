@@ -2,20 +2,20 @@
 
 Test og publisering av mine prosjekter for øving på Javascript
 
-## Innhold
+# Innhold
 
-# NAVBAR
+## NAVBAR
 
 Bygge opp funksjonell og mobilvennlig navbar
 
-# KUNDE/ARTIKKEL KVITTERING
+## KUNDE/ARTIKKEL KVITTERING
 
 Bygge kvitteringer ved hjelp av arrays og looping
 
-# KALKYLEKALKULATOR
+## KALKYLEKALKULATOR
 
 Bygge kalkulator for utregning av kalkyler for salg
 
-# PACE CALCULATOR
+## PACE CALCULATOR
 
 Omregning av PACE -> KM/T, KM/T -> PACE

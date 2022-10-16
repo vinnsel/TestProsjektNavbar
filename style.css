@@ -5,6 +5,26 @@
 
 }
 
+
+.form_container
+{
+width:450px;
+height:100px;
+display:inline-block;
+margin:20px 20px;
+padding:10px;
+
+}
+
+.form_container input[type='text'],
+.form_container button
+{
+padding:8px;
+font-size:1.5em;
+}
+
+
+
 nav {
     display: flex;
     justify-content: space-around;
@@ -12,6 +32,49 @@ nav {
     min-height: 10vh;
     background-color: #504954;
     font-family: 'Poppins', sans-serif;
+}
+
+.title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    padding: 5px;
+    text-align: center;
+    border: solid;
+    border-bottom: none;
+    border-color: black;
+
+}
+
+.form-fields {
+    font-family: 'Poppins', sans-serif;
+    padding: 5px;
+    text-align: center;
+    border: solid;
+    border-bottom: none;
+    border-color: black;
+}
+
+.field {
+    padding: 5px;
+}
+
+.form-subit {
+    padding: 5px;
+}
+
+.middle-frame {
+    font-family: 'Poppins', sans-serif;
+    padding: 5px;
+    border: solid;
+    border-bottom: none;
+    border-color: black;
+}
+
+.bottom-frame {
+    font-family: 'Poppins', sans-serif;
+    padding: 5px;
+    border: solid;
+    border-color: black;
 }
 
 .logo {

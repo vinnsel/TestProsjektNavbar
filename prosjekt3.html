@@ -29,9 +29,31 @@
         </div>
     </nav>
     <script src="app.js"></script>
-PACE CALCULATOR
+        <div class="title">PACE CALCULATOR</div>
+        <div class="form-fields">
+            <div class="field">
+                <label for="insertPace">Insert pace (format ex: 5:00)</label>
+                <input type="text" id="insertPace" name="insertPace" required minlength="3" maxlength="5" size="10">
+            </div>
+            <div class="field">
+                <label for="insertSpeed">Insert speed (format ex: 12):</label>
+                <input type="text" id="insertSpeed" name="insertSpeed" required minlength="3" maxlength="5" size="10">
+            </div>
+     
+            <button onclick="calculate()">Try it</button>
+        </div>
 
-    <script src="paceCalculator.js"></script>
+        <div class="bottom-frame">
+            <div><p><b>RESULTS</b></p></div>
+            <div class="results">
+                Result - x
+            </div>
+
+        </div>
+
+<script src="paceCalculator.js"></script>
+
+
 
 
 

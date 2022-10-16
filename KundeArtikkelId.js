@@ -79,6 +79,8 @@ let varer = [
 }
 ]
 
+kunder.map(navn => console.log(navn.artikler))
+varer.map(vareArtikkelId => console.log(vareArtikkelId.artikkelid))
 
     // Looper gjennom kunders artikler
 for (let i=0; i < kunder.length; i++) {
@@ -106,49 +108,3 @@ for (let i=0; i < varer.length; i++) {
 
     }
 
-
-
-
-
-
-
-
-// Regner om desimaler
-function noDecimal(ingenDesimaler) {
-    return Number.parseFloat(ingenDesimaler).toFixed(0);
-}
-function toDecimal(toDesimaler) {
-    return Number.parseFloat(toDesimaler).toFixed(2);
-}
-
-for (let i=0; i < varer.length; i++) {
-//    console.log(varer[i].artikkel)
-//    console.log(varer.length)
-//    console.log(i + 1)
-
-
-// Regner ut kalkylen på en vare
-function kalkyle(artikkel, kostPris, veilPris, rabatt) {
-    const rabattProsentDesimal = rabatt / 100
-    const betaltDesimal = 1 - rabattProsentDesimal
-    const etterRabatt = veilPris * betaltDesimal
-    const mva = etterRabatt * 0.20
-    const prisEtterMva = etterRabatt - mva
-    const dekningsbidragKr = prisEtterMva - kostPris
-    const dekningsbidragProsent = dekningsbidragKr / prisEtterMva
-    
-
-//    console.log('Salgspris på ' + artikkel + ' ' + veilPris + ',-')
-//    console.log('Rabattprosent, desimal ' + toDecimal(rabattProsentDesimal) + '')
-//    console.log('Betaltprosent, desimal ' + toDecimal(betaltDesimal) + '')
-//    console.log('Pris etter rabatt ' + noDecimal(etterRabatt) + ',-')
-//    console.log('Pris etter rabatt og mva ' + noDecimal(prisEtterMva) + ',-')
-//    console.log('Mva ' + noDecimal(mva) + ',-')
-//    console.log('Dekningsbidrag i kroner er ' + noDecimal(dekningsbidragKr) + ',-')
-//    console.log('Dekningsbidrag i % er ' + toDecimal(dekningsbidragProsent) + '%')
-    
-    return dekningsbidragProsent
-}
-kalkyle(varer[i].artikkel, varer[i].kostpris, varer[i].pris, varer[i].rabatt)
-
-}
