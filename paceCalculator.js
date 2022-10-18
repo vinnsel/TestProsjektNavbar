@@ -1,12 +1,33 @@
 
 const kmtInput = document.getElementById("insertSpeed")
+const paceInput = document.getElementById("insertPace")
 const calculateBtn = document.getElementById("calculateBtn")
+let resultDom = document.getElementById('results')
+
 // console.log(calculateBtn)
+
+
+
 
 function calculate() {
   const kmtOutput = kmtInput.value
-//  console.log(value)
+  const paceOutput = paceInput.value
 
+  if(kmtOutput == '' && paceOutput == '')  {
+    alert('FYLL INN ET AV FELTENE')
+    const check = false
+  }  
+  if(kmtOutput != '' && paceOutput != '') {
+    alert('DU KAN BARE FYLLE UT ET AV FELTENE')
+    const check = false
+  }  
+  console.log(kmtOutput, paceOutput );  
+
+    if(check = 'false')
+    {
+console.log(check)
+    } 
+    else {
 
   if(kmtOutput || '') { 
     // converting speed to pace  
@@ -28,8 +49,10 @@ function calculate() {
     
     console.log(kmtOutput); 
     console.log(convertDecimalToTime);
-   
-  
+   console.log(resultDom.innerText) 
+    const resultOutputPace = convertDecimalToTime
+    resultDom.innerText = 'Farten ' + kmtOutput +'kmt. omregnet til pace er '
+     + resultOutputPace + ' min. pr. km.'; 
   
    
        } 
@@ -37,44 +60,37 @@ function calculate() {
          cosole.log('false kmt');
     }
 
+
+
+    if(paceOutput) { 
+        // converting pace to speed
+        function timeStringToFloat(time) {
+            const hoursMinutes = time.split(/[.:]/);
+            const hours = parseInt(hoursMinutes[0], 10);
+            const minutes = hoursMinutes[1] ? parseInt(hoursMinutes[1], 10) : 0;
+            return hours + minutes / 60;
+          }
+  
+          const timeToDecimal = timeStringToFloat(paceOutput);
+         
+          const DecimalTokmt = 60 / timeToDecimal;
+            let OutputKmtDecimal = DecimalTokmt;
+            resultOutputSpeed = OutputKmtDecimal.toFixed(1);
+  
+            resultDom.innerText = 'Farten ' + paceOutput +'kmt. omregnet til pace er '
+            + resultOutputSpeed + ' min. pr. km.'; 
+            
+            console.log(resultDom.innerText) 
+
+    console.log(paceOutput);
+    console.log(resultOutputSpeed);
+  
+  
+    }
+    else {
+         cosole.log('false kmt');
+    }
+
 }
-
-function addere(verdi1, verdi2) {
-  const sum = verdi1 + verdi2
-
-  return sum
 }
- 
-const sum = addere(1, 3)
-console.log(sum)
-
 calculateBtn.addEventListener("click", calculate)
-
-    
-
-
-
-/*
-if(paceInput) { 
-      // converting pace to speed
-      function timeStringToFloat(time) {
-          const hoursMinutes = time.split(/[.:]/);
-          const hours = parseInt(hoursMinutes[0], 10);
-          const minutes = hoursMinutes[1] ? parseInt(hoursMinutes[1], 10) : 0;
-          return hours + minutes / 60;
-        }
-
-        const timeToDecimal = timeStringToFloat(paceInput);
-       
-        const DecimalTokmt = 60 / timeToDecimal;
-       let OutputKmtDecimal = DecimalTokmt;
-          OutputKmtDecimal = OutputKmtDecimal.toFixed(1);
-
-  console.log(paceInput);
-  console.log(OutputKmtDecimal);
-
-
-
-
-  }
-  */
