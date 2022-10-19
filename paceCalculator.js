@@ -1,35 +1,38 @@
 
 const kmtInput = document.getElementById("insertSpeed")
 const paceInput = document.getElementById("insertPace")
+const resultTitle = document.getElementById("result-title")
 const calculateBtn = document.getElementById("calculateBtn")
-let resultDom = document.getElementById('results')
+const resultDom = document.getElementById('results')
 
-// console.log(calculateBtn)
-
-
+// console.log(para)
 
 
+
+
+
+
+    let check = ''
 function calculate() {
   const kmtOutput = kmtInput.value
   const paceOutput = paceInput.value
 
   if(kmtOutput == '' && paceOutput == '')  {
-    alert('FYLL INN ET AV FELTENE')
-    const check = false
+    let check = false
+    console.log('FYLL INN ET AV FELTENE')
+    
   }  
   if(kmtOutput != '' && paceOutput != '') {
-    alert('DU KAN BARE FYLLE UT ET AV FELTENE')
-    const check = false
+    let check = false
+   console.log('DU KAN BARE FYLLE UT ET AV FELTENE')
+    
   }  
+
   console.log(kmtOutput, paceOutput );  
+  console.log(check)
 
-    if(check = 'false')
-    {
-console.log(check)
-    } 
-    else {
 
-  if(kmtOutput || '') { 
+  if(kmtOutput != '' & check == true) { 
     // converting speed to pace  
         const resPace = 60 / kmtOutput; 
         function minTommss(minutes){
@@ -51,18 +54,19 @@ console.log(check)
     console.log(convertDecimalToTime);
    console.log(resultDom.innerText) 
     const resultOutputPace = convertDecimalToTime
+
+
+    resultTitle.innerText = 'REGN OM FART -> PACE'
     resultDom.innerText = 'Farten ' + kmtOutput +'kmt. omregnet til pace er '
      + resultOutputPace + ' min. pr. km.'; 
-  
+
    
        } 
-    else {
-         cosole.log('false kmt');
-    }
+ 
 
 
 
-    if(paceOutput) { 
+    if(paceOutput != '' & check == true) { 
         // converting pace to speed
         function timeStringToFloat(time) {
             const hoursMinutes = time.split(/[.:]/);
@@ -77,8 +81,12 @@ console.log(check)
             let OutputKmtDecimal = DecimalTokmt;
             resultOutputSpeed = OutputKmtDecimal.toFixed(1);
   
-            resultDom.innerText = 'Farten ' + paceOutput +'kmt. omregnet til pace er '
-            + resultOutputSpeed + ' min. pr. km.'; 
+
+            resultTitle.innerText = 'REGN OM PACE -> FART'
+            resultDom.innerText = 'Pace ' + paceOutput +'min. pr. km. omregnet til fart er '
+            + resultOutputSpeed + 'kmt.'; 
+
+
             
             console.log(resultDom.innerText) 
 
@@ -88,9 +96,8 @@ console.log(check)
   
     }
     else {
-         cosole.log('false kmt');
     }
 
 }
-}
+
 calculateBtn.addEventListener("click", calculate)
