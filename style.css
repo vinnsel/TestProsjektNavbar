@@ -191,3 +191,27 @@ nav {
     transform: rotate(45deg) translate(-5px,-6px);
 }
     
+.quote {
+    margin: 0 auto;
+    max-width: 15rem;
+}
+
+.quote p {
+    padding: 15px;
+    background: #eee;
+    border-radius: 5px;
+}
+
+.quote p::before {
+    content: '\201C';
+}
+
+.quote p::after {
+    content: '\201D';
+}
+
+figcaption {
+    margin: 0 auto;
+    max-width: 15rem;
+    padding: 1rem;
+}

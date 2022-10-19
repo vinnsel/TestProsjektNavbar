@@ -19,7 +19,7 @@ function toDecimal(toDesimaler) {
 // Regner ut kalkylen på en vare
 function kalkyle() {
 
-    const artikkel = 'Jakke'
+    const artikkel = 'Jakke' // Forslag: Legg til en input der brukeren kan legge inn navnet på produktet
     const kostPris = insertKostPris.value
     const veilPris = insertSalgsPris.value
     const rabatt = insertRabatt.value
@@ -45,5 +45,6 @@ function kalkyle() {
 
     resultTitle.innerText = 'ØNSKET PRISTILBUD'
     resultDom.innerText = '' + artikkel +' - ' + rabatt + '%  Pris: ' + etterRabatt + ',- ' 
+    // Sjekk ut Template literals (Template strings) noen med bruk av ` (backtics). Da blir det "penere" og lettere å kode inn tekststrenger
 }
 calculateBtn.addEventListener("click", kalkyle)
