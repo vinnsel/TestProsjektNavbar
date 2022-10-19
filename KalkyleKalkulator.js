@@ -1,7 +1,9 @@
 const insertKostPris = document.getElementById("insertKostPris")
 const insertSalgsPris = document.getElementById("insertSalgsPris")
 const insertRabatt = document.getElementById("insertRabatt")
+const resultTitle = document.getElementById("result-title")
 const calculateBtn = document.getElementById("calculateBtn")
+const resultDom = document.getElementById('results')
 
 
 
@@ -39,7 +41,9 @@ function kalkyle() {
 //    console.log('Mva ' + noDecimal(mva) + ',-')
 //    console.log('Dekningsbidrag i kroner er ' + noDecimal(dekningsbidragKr) + ',-')
     console.log('Dekningsbidrag i % er ' + toDecimal(dekningsbidragProsent) + '%')
-    
-    return dekningsbidragProsent
+
+
+    resultTitle.innerText = 'ØNSKET PRISTILBUD'
+    resultDom.innerText = '' + artikkel +' - ' + rabatt + '%  Pris: ' + etterRabatt + ',- ' 
 }
 calculateBtn.addEventListener("click", kalkyle)

@@ -45,6 +45,24 @@ nav {
 
 }
 
+.bottom-frame {
+    font-family: 'Poppins', sans-serif;
+    padding: 5px;
+    border: solid;
+    border-color: black;
+}
+
+.result-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    padding: 5px;
+    text-align: center;
+    border: solid;
+    border-bottom: none;
+    border-color: black;
+
+}
+
 .form-fields {
     font-family: 'Poppins', sans-serif;
     padding: 5px;
@@ -70,12 +88,6 @@ nav {
     border-color: black;
 }
 
-.bottom-frame {
-    font-family: 'Poppins', sans-serif;
-    padding: 5px;
-    border: solid;
-    border-color: black;
-}
 
 .logo {
     text-decoration: none;

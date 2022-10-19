@@ -12,27 +12,23 @@ const resultDom = document.getElementById('results')
 
 
 
-    let check = ''
+    
 function calculate() {
   const kmtOutput = kmtInput.value
   const paceOutput = paceInput.value
 
   if(kmtOutput == '' && paceOutput == '')  {
-    let check = false
     console.log('FYLL INN ET AV FELTENE')
     
   }  
   if(kmtOutput != '' && paceOutput != '') {
-    let check = false
    console.log('DU KAN BARE FYLLE UT ET AV FELTENE')
     
   }  
 
-  console.log(kmtOutput, paceOutput );  
-  console.log(check)
 
 
-  if(kmtOutput != '' & check == true) { 
+  if(kmtOutput != '' & paceOutput == '') { 
     // converting speed to pace  
         const resPace = 60 / kmtOutput; 
         function minTommss(minutes){
@@ -66,7 +62,7 @@ function calculate() {
 
 
 
-    if(paceOutput != '' & check == true) { 
+    if(paceOutput != '' & kmtOutput == '') { 
         // converting pace to speed
         function timeStringToFloat(time) {
             const hoursMinutes = time.split(/[.:]/);
