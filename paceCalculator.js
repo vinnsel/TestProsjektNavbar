@@ -1,14 +1,38 @@
 
 const kmtInput = document.getElementById("insertSpeed")
+const paceInput = document.getElementById("insertPace")
+const resultTitle = document.getElementById("result-title")
 const calculateBtn = document.getElementById("calculateBtn")
-// console.log(calculateBtn)
+const resultDom = document.getElementById('results')
 
+// console.log(para)
+
+
+
+
+
+
+    let check = ''
 function calculate() {
   const kmtOutput = kmtInput.value
-//  console.log(value)
+  const paceOutput = paceInput.value
+
+  if(kmtOutput == '' && paceOutput == '')  {
+    let check = false
+    console.log('FYLL INN ET AV FELTENE')
+    
+  }  
+  if(kmtOutput != '' && paceOutput != '') {
+    let check = false
+   console.log('DU KAN BARE FYLLE UT ET AV FELTENE')
+    
+  }  
+
+  console.log(kmtOutput, paceOutput );  
+  console.log(check)
 
 
-  if(kmtOutput || '') { 
+  if(kmtOutput != '' & check == true) { 
     // converting speed to pace  
         const resPace = 60 / kmtOutput; 
         function minTommss(minutes){
@@ -28,53 +52,52 @@ function calculate() {
     
     console.log(kmtOutput); 
     console.log(convertDecimalToTime);
-   
-  
-  
+   console.log(resultDom.innerText) 
+    const resultOutputPace = convertDecimalToTime
+
+
+    resultTitle.innerText = 'REGN OM FART -> PACE'
+    resultDom.innerText = 'Farten ' + kmtOutput +'kmt. omregnet til pace er '
+     + resultOutputPace + ' min. pr. km.'; 
+
    
        } 
+ 
+
+
+
+    if(paceOutput != '' & check == true) { 
+        // converting pace to speed
+        function timeStringToFloat(time) {
+            const hoursMinutes = time.split(/[.:]/);
+            const hours = parseInt(hoursMinutes[0], 10);
+            const minutes = hoursMinutes[1] ? parseInt(hoursMinutes[1], 10) : 0;
+            return hours + minutes / 60;
+          }
+  
+          const timeToDecimal = timeStringToFloat(paceOutput);
+         
+          const DecimalTokmt = 60 / timeToDecimal;
+            let OutputKmtDecimal = DecimalTokmt;
+            resultOutputSpeed = OutputKmtDecimal.toFixed(1);
+  
+
+            resultTitle.innerText = 'REGN OM PACE -> FART'
+            resultDom.innerText = 'Pace ' + paceOutput +'min. pr. km. omregnet til fart er '
+            + resultOutputSpeed + 'kmt.'; 
+
+
+            
+            console.log(resultDom.innerText) 
+
+    console.log(paceOutput);
+    console.log(resultOutputSpeed);
+  
+  
+    }
     else {
-         cosole.log('false kmt');
     }
 
 }
 
-function addere(verdi1, verdi2) {
-  const sum = verdi1 + verdi2
-
-  return sum
-}
- 
-const sum = addere(1, 3)
-console.log(sum)
-
 calculateBtn.addEventListener("click", calculate)
-
-    
-
-
-
-/*
-if(paceInput) { 
-      // converting pace to speed
-      function timeStringToFloat(time) {
-          const hoursMinutes = time.split(/[.:]/);
-          const hours = parseInt(hoursMinutes[0], 10);
-          const minutes = hoursMinutes[1] ? parseInt(hoursMinutes[1], 10) : 0;
-          return hours + minutes / 60;
-        }
-
-        const timeToDecimal = timeStringToFloat(paceInput);
-       
-        const DecimalTokmt = 60 / timeToDecimal;
-       let OutputKmtDecimal = DecimalTokmt;
-          OutputKmtDecimal = OutputKmtDecimal.toFixed(1);
-
-  console.log(paceInput);
-  console.log(OutputKmtDecimal);
-
-
-
-
-  }
-  */
