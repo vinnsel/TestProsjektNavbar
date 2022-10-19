@@ -1,83 +1,9 @@
+const insertKostPris = document.getElementById("insertKostPris")
+const insertSalgsPris = document.getElementById("insertSalgsPris")
+const insertRabatt = document.getElementById("insertRabatt")
+const calculateBtn = document.getElementById("calculateBtn")
 
-//Objekt vare
-/*
-const vare1 = {
-    artikkel: 'Jakke',
-    kostpris: 600,
-    pris: 1500,
-    rabatt: 15
-}
 
-const vare2 = {
-    artikkel: 'Bukse',
-    kostpris: 600,
-    pris: 1200,
-    rabatt: 10
-}
-*/
-
-//array for kunder
-let kunder = [
-    {
-        kundeid: 1,
-        navn: 'Peter Pan',
-        telefon: '97453465',
-        artikler: [1, 2]
-    },
-    {
-        kundeid: 2,
-        navn: 'Petter Smart',
-        telefon: '97422465',
-        artikler: [1, 2, 3]
-    },    
-    {
-        kundeid: 3,
-        navn: 'Trond Bonde',    
-        telefon: 96965383,
-        artikler: [2, 3, 5]
-    }
-]
-//  console.log(kunder)
-//  console.log(kunder[1].navn)
-
-//array for varer
-let varer = [
-    {  
-    artikkelid: 1,    
-    artikkel: 'Jakke',
-    kostpris: 600,
-    pris: 1500,
-    rabatt: 15
-},
-{
-    artikkelid: 2, 
-    artikkel: 'Bukse',
-    kostpris: 500,
-    pris: 1000,
-    rabatt: 10
-},
-{
-    artikkelid: 3, 
-    artikkel: 'Sko',
-    kostpris: 350,
-    pris: 699,
-    rabatt: null
-},
-{
-    artikkelid: 4, 
-    artikkel: 'Sykkel',
-    kostpris: 1200,
-    pris: 2999,
-    rabatt: null
-},
-{
-    artikkelid: 5, 
-    artikkel: 'Skjermer',
-    kostpris: 79,
-    pris: 199,
-    rabatt: null
-}
-]
 
 // KALKYLEKALKULATOR
 // Regner om desimaler
@@ -88,14 +14,14 @@ function toDecimal(toDesimaler) {
     return Number.parseFloat(toDesimaler).toFixed(2);
 }
 
-for (let i=0; i < varer.length; i++) {
-//    console.log(varer[i].artikkel)
-//    console.log(varer.length)
-//    console.log(i + 1)
-
-
 // Regner ut kalkylen på en vare
-function kalkyle(artikkel, kostPris, veilPris, rabatt) {
+function kalkyle() {
+
+    const artikkel = 'Jakke'
+    const kostPris = insertKostPris.value
+    const veilPris = insertSalgsPris.value
+    const rabatt = insertRabatt.value
+
     const rabattProsentDesimal = rabatt / 100
     const betaltDesimal = 1 - rabattProsentDesimal
     const etterRabatt = veilPris * betaltDesimal
@@ -108,14 +34,12 @@ function kalkyle(artikkel, kostPris, veilPris, rabatt) {
     console.log('Salgspris på ' + artikkel + ' ' + veilPris + ',-')
 //    console.log('Rabattprosent, desimal ' + toDecimal(rabattProsentDesimal) + '')
 //    console.log('Betaltprosent, desimal ' + toDecimal(betaltDesimal) + '')
-//    console.log('Pris etter rabatt ' + noDecimal(etterRabatt) + ',-')
+    console.log('Pris etter rabatt ' + noDecimal(etterRabatt) + ',-')
 //    console.log('Pris etter rabatt og mva ' + noDecimal(prisEtterMva) + ',-')
 //    console.log('Mva ' + noDecimal(mva) + ',-')
 //    console.log('Dekningsbidrag i kroner er ' + noDecimal(dekningsbidragKr) + ',-')
-//    console.log('Dekningsbidrag i % er ' + toDecimal(dekningsbidragProsent) + '%')
+    console.log('Dekningsbidrag i % er ' + toDecimal(dekningsbidragProsent) + '%')
     
     return dekningsbidragProsent
 }
-kalkyle(varer[i].artikkel, varer[i].kostpris, varer[i].pris, varer[i].rabatt)
-
-}
+calculateBtn.addEventListener("click", kalkyle)

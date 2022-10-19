@@ -15,7 +15,7 @@
         </div>
         <ul class="nav-links">
             <li><a href="home.html">Home</a></li>
-            <li><a href="prosjekt1.html">KalkyleKalkulator</a></li>
+            <li><a href="prosjekt1.html">Pristilbudskalkulator</a></li>
             <li><a href="prosjekt2.html">Kvittering</a></li>
             <li><a href="prosjekt3.html">PaceCalkulator</a></li>
             <li><a href="#">Prosjekt4</a></li>
@@ -29,8 +29,30 @@
         </div>
     </nav>
     <script src="app.js"></script>
-KALKYLEKALKULATOR
+    <div class="title">PACE CALCULATOR</div>
+    <div class="form-fields">
+        <div class="field">
+            <label for="insertKostPris">Skriv inn kostpris for vare:</label>
+            <input type="text" id="insertKostPris" name="insertKostPris" required minlength="3" maxlength="5" size="10">
+        </div>
+        <div class="field">
+            <label for="insertSalgspris">Skriv inn salgspris på vare:</label>
+            <input type="text" id="insertSalgsPris" name="insertSalgsPris" required minlength="3" maxlength="5" size="10">
+        </div>
+        <div class="field">
+            <label for="insertRabatt">Skriv inn salgspris på vare:</label>
+            <input type="text" id="insertRabatt" name="insertRabatt" required minlength="3" maxlength="5" size="10">
+        </div>
+        <button id="calculateBtn">Regn ut kalkyle</button>
+    </div>
 
+    <div class="bottom-frame">
+        <div><p><b>RESULTS</b></p></div>
+        <div id="results">
+            Result - x
+        </div>
+
+    </div>
     <script src="KalkyleKalkulator.js"></script>
 
 
