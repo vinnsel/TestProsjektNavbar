@@ -168,6 +168,7 @@ nav {
 
 .nav-active{
     transform: translateX(0);
+    
 }
 
 @keyframes navLinkFade {

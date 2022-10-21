@@ -14,11 +14,11 @@
             <h4><a href="index.html">Test prosjekt</a></h4>
         </div>
         <ul class="nav-links">
-            <li><a href="home.html">Home</a></li>
-            <li><a href="prosjekt1.html">Pristilbudskalkulator</a></li>
-            <li><a href="prosjekt2.html">Kvittering</a></li>
-            <li><a href="prosjekt3.html">PaceCalkulator</a></li>
-            <li><a href="#">Prosjekt4</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="pristilbud.html">Pristilbudskalkulator</a></li>
+            <li><a href="kvittering.html">Kvittering</a></li>
+            <li><a href="pacecalculator.html">Pacecalculator</a></li>
+            <li><a href="array.html">Array</a></li>
             
         </ul>
         <div class="burger">
@@ -32,6 +32,10 @@
     <div class="title">ARRAY</div>
     <div class="form-fields">
         <div class="field">
+            <label for="inputArtikkel">Sett inn artikkel:</label>
+            <input type="text" id="inputArtikkel" name="inputArtikkel" required minlength="3" maxlength="20" size="15">
+        </div>
+        <div class="field">
             <label for="inputPris">Sett inn pris:</label>
             <input type="text" id="inputPris" name="inputPris" required minlength="3" maxlength="5" size="10">
         </div>
@@ -42,7 +46,10 @@
     <div class="bottom-frame">
         <div><p><b>DISPLAY ARRAY</b></p></div>
         <div id="results">
-            Result - x
+            <ul id="result-list">
+
+            </ul>
+            <!-- Result - x -->
         </div>
 
     </div>
