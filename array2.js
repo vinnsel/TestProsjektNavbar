@@ -13,14 +13,12 @@ function input() {
         }
         
         tilbudArray.push(inputObject) // dytt ny verdi inn i prisArray
+        const varePris = tilbudArray.map(element => `Artikkelnavn: ${element.artikkel} Pris: ${element.pris},- `);
+        showInput.innerText = varePris.join('\r\n')
+      
+      }
+      console.log(tilbudArray)
 
-
-    for (let i=0; i < tilbudArray.length; i++) {
-                console.log(inputObject.artikkel)
-                showInput.innerText = inputObject.artikkel
-        }
-        
-}
 
   inputBtn.addEventListener("click", input)
 
