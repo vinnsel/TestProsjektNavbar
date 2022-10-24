@@ -30,10 +30,9 @@ function input() {
     // Akkurat nå overskrives verdiene i localStorage hver gang input-funksjonen kjøres (når knappen trykkes)
     // Mål: hente verdiene som ligger i localStorage, legg til nye verdier/oppdater "gammel" array, oppdater/push nye verdier inn i localStorage
 
-    // resultList.innerHTML = ''
     //console.log({storageArray}) 
     //console.log({prisArray})
-    // resultList.innerHTML = resultItems
+
 
 
 
@@ -57,19 +56,13 @@ function input() {
      // li.appendChild(document.createTextNode(textOutput)) // legg verdien av textOutput inn som textNode-barn av <li> elementet
      // resultList.appendChild(li) // legg <li> elementet inn som et node-barn av <ul> elementet
     
-console.log(prisArray)
-for (let i=0; i < prisArray.length; i++) {
-    console.log(inputObject)
-    showInput.innerText = inputObject[i].artikkel
-    console.log(prisArray)
-
-
+     for (let i=0; i < prisArray.length; i++) {
+      let prisArray = showInput.innerText = prisArray
+  }
+  
 }
 
 
-//}
-
-}
 
 
 
