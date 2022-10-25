@@ -3,16 +3,10 @@ const inputArtikkel = document.getElementById("inputArtikkel")
 const inputBtn = document.getElementById("inputBtn")
 const showInput = document.getElementById('results')
 
-
-function getArray() {
 const tilbudArray = []
-return tilbudArray
-}
 
-function lagreInputArray() {
 
-    getArray()
-
+function input() {
         const inputObject = {
           artikkel: inputArtikkel.value,
           pris: inputPris.value
@@ -22,11 +16,11 @@ function lagreInputArray() {
         const varePris = tilbudArray.map(element => `Artikkelnavn: ${element.artikkel} Pris: ${element.pris},- `);
         showInput.innerText = varePris.join('\r\n')
       
-      
+      }
       console.log(tilbudArray)
 
-    }
-  inputBtn.addEventListener("click", lagreInputArray)
+
+  inputBtn.addEventListener("click", input)
 
 /*
 

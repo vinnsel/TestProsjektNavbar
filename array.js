@@ -8,6 +8,8 @@ const displayArray = JSON.parse(storage.getItem("storeTilbudArray")) // Hent inf
 const displayTilbudArray = JSON.parse(localStorage.getItem("storeTilbudArray")) 
  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
 
+console.log(formArtikkel.value)
+
 function input(tilbudArray) {
 
 
@@ -15,7 +17,7 @@ function input(tilbudArray) {
     artikkel: formArtikkel.value,
     pris: formPris.value
   }
-
+ console.log(artikkel)
   tilbudArray.push(inputObject) // dytt ny verdi inn i prisArray
 
   //skriver vedier til DOM
@@ -36,7 +38,7 @@ function input(tilbudArray) {
   console.log({tilbudArray})
 }
 
-
+/*
 
   if (!displayTilbudArray) {
     const tilbudArray = []
@@ -54,7 +56,7 @@ function input(tilbudArray) {
 
     }
 
-
+*/
 
 
 
