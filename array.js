@@ -10,6 +10,7 @@ const displayTilbudArray = JSON.parse(localStorage.getItem("storeTilbudArray"))
 
 function input(tilbudArray) {
 
+
   const inputObject = {
     artikkel: formArtikkel.value,
     pris: formPris.value
@@ -37,7 +38,7 @@ function input(tilbudArray) {
 
 
 
-  if (displayTilbudArray == null) {
+  if (!displayTilbudArray) {
     const tilbudArray = []
     console.log(tilbudArray)
     console.log(true)
@@ -50,6 +51,7 @@ function input(tilbudArray) {
     console.log(tilbudArray)  
     console.log(false)
     inputBtn.addEventListener("click", input(tilbudArray))
+
     }
 
 
