@@ -45,6 +45,7 @@ function input(tilbudArray) {
     }
 
   else {
+
     const tilbudArray = displayTilbudArray
     console.log(tilbudArray)  
     console.log(false)
