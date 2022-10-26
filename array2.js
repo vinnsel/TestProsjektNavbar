@@ -1,10 +1,18 @@
 const inputPris = document.getElementById("inputPris")
 const inputArtikkel = document.getElementById("inputArtikkel")
 const inputBtn = document.getElementById("inputBtn")
+const emptyBtn = document.getElementById("emptyBtn")
 const showInput = document.getElementById('results')
 const storage = window.localStorage // opprett egen variabel med tilgag til localStorage
 const displayArray = JSON.parse(storage.getItem("storeTilbudArray")) // Hent informasjon fra localStorage og parse til JS fra JSON
 
+console.log(displayArray)
+function emptyArray() {
+    const displayArray = ''
+   const storageArray = JSON.stringify(displayArray) // opprett en ny variabel med en JSON-verdi med prisArray som kilde
+   storage.setItem("storeTilbudArray", storageArray)
+   visInputArray()
+   }
 
 function lagreInputArray() {
 
@@ -13,7 +21,7 @@ function lagreInputArray() {
           pris: inputPris.value
         } 
 
-      if (displayArray == null)  {
+      if (displayArray == '')  {
         const displayArray = []
         displayArray.push(inputObject) // dytt ny verdi inn i prisArray
         const storageArray = JSON.stringify(displayArray) // opprett en ny variabel med en JSON-verdi med prisArray som kilde
@@ -27,13 +35,12 @@ function lagreInputArray() {
         const storageArray = JSON.stringify(displayArray) // opprett en ny variabel med en JSON-verdi med prisArray som kilde
         storage.setItem("storeTilbudArray", storageArray) // lagre "prisArray" (key) med storageArray (value) i localStorage
         console.log(displayArray)
-        
       }
 visInputArray()
         
 
       } 
-      
+
 
     function visInputArray() {
       
@@ -49,8 +56,7 @@ visInputArray()
     }
 }
     visInputArray()
-
-
-
-
+   
+   
    inputBtn.addEventListener("click", lagreInputArray)
+   emptyBtn.addEventListener("click", emptyArray)
