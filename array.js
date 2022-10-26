@@ -1,7 +1,7 @@
 const formPris = document.getElementById("inputPris")
 const formArtikkel = document.getElementById("inputArtikkel")
 const inputBtn = document.getElementById("inputBtn")
-const showInput = document.getElementById('results')
+const showInput = dsocument.getElementById('results')
 const resultList = document.getElementById("result-list")
 const storage = window.localStorage // opprett egen variabel med tilgag til localStorage
 const displayArray = JSON.parse(storage.getItem("storeTilbudArray")) // Hent informasjon fra localStorage og parse til JS fra JSON
@@ -26,7 +26,7 @@ function input(tilbudArray) {
 
 
 
-  const storageArray = JSON.stringify(tilbudArray) // opprett en ny variabel med en JSON-verdi med prisArray som kilde
+  const storageArray = JSON.stringify(tilbudArray) // opsprett en ny variabel med en JSON-verdi med prisArray som kilde
   storage.setItem("storeTilbudArray", storageArray) // lagre "prisArray" (key) med storageArray (value) i localStorage
   console.log({ storageArray })
 
