@@ -2,79 +2,46 @@ const inputPris = document.getElementById("inputPris")
 const inputArtikkel = document.getElementById("inputArtikkel")
 const inputBtn = document.getElementById("inputBtn")
 const showInput = document.getElementById('results')
+const storage = window.localStorage // opprett egen variabel med tilgag til localStorage
+ const displayArray = JSON.parse(storage.getItem("storeTilbudArray")) // Hent informasjon fra localStorage og parse til JS fra JSON
+// const displayTilbudArray = JSON.parse(localStorage.getItem("storeTilbudArray")) 
 
+ // const displayArray = []
 
-function getArray() {
-const tilbudArray = []
-return tilbudArray
-}
+console.log(displayArray)
 
 function lagreInputArray() {
-
-    getArray()
 
         const inputObject = {
           artikkel: inputArtikkel.value,
           pris: inputPris.value
-        }
+        } 
+        displayArray.push(inputObject) // dytt ny verdi inn i prisArray
         
-        tilbudArray.push(inputObject) // dytt ny verdi inn i prisArray
-        const varePris = tilbudArray.map(element => `Artikkelnavn: ${element.artikkel} Pris: ${element.pris},- `);
-        showInput.innerText = varePris.join('\r\n')
-      
-      
-      console.log(tilbudArray)
-
-    }
-  inputBtn.addEventListener("click", lagreInputArray)
-
-/*
-
-  function input() {
-    const inputObject = {
-      artikkel: formArtikkel.value,
-      pris: formPris.value
-    }
-
-
-    tilbudArray.push(inputObject)
-
-    console.log(tilbudArray)
-    for (let i=0; i < tilbudArray.length; i++) {
-            console.log(inputObject.artikkel)
-            showInput.innerText = inputObject.artikkel
-            console.log(tilbudArray)
-
-        }
-
-  const prisTest = ['t1', 't2', 't3', 't4']
-
-  for (let i=0; i < prisTest.length; i++) {
-    console.log(prisTest[i])
-
-    function kalkyle(prisTest1) {
-        showInput.innerText = prisTest1
-        console.log(prisTest1)
-    }
-    kalkyle(prisTest)
     
+        const storageArray = JSON.stringify(displayArray) // opprett en ny variabel med en JSON-verdi med prisArray som kilde
+        storage.setItem("storeTilbudArray", storageArray) // lagre "prisArray" (key) med storageArray (value) i localStorage
+        console.log(displayArray)
 
 
-}
-*/
+        visInputArray()
 
-//  let arrayTest = showInput.innerText = prisTest
-//  console.log(prisTest)
+      } 
+      
+
+    function visInputArray() {
+      // if (erd det noe i localStorage?) {
+      //   ja det er det
+      // } else {
+      //   nei det var det visst ikke
+      // }
+      const hentFraLocalStorge = JSON.parse(storage.getItem("storeTilbudArray"))
+      const varePris = hentFraLocalStorge.map(element => `Artikkelnavn: ${element.artikkel} Pris: ${element.pris},- `);
+      showInput.innerText = varePris.join('\r\n')
+    }
+
+    visInputArray()
 
 
 
-
-
-
-
-
-
-
-
-
-
+  inputBtn.addEventListener("click", lagreInputArray)

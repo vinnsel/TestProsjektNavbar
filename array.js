@@ -28,7 +28,7 @@ function input(tilbudArray) {
 
   const storageArray = JSON.stringify(tilbudArray) // opprett en ny variabel med en JSON-verdi med prisArray som kilde
   storage.setItem("storeTilbudArray", storageArray) // lagre "prisArray" (key) med storageArray (value) i localStorage
-  console.log(storageArray)
+  console.log({ storageArray })
 
      
   // Akkurat nå overskrives verdiene i localStorage hver gang input-funksjonen kjøres (når knappen trykkes)
