@@ -4,8 +4,13 @@ const insertRabatt = document.getElementById("insertRabatt")
 const resultTitle = document.getElementById("result-title")
 const calculateBtn = document.getElementById("calculateBtn")
 const resultDom = document.getElementById('results')
+const kalkyleDom = document.getElementById('kalkyle')
+const rabattDom = document.getElementById('rabatt')
 
-
+// if salgspris og kostpris tom alert. fyll ut felter
+ // if kostpris tom feil
+ // if salgspris tom feil
+ 
 
 // KALKYLEKALKULATOR
 // Regner om desimaler
@@ -30,10 +35,10 @@ function kalkyle() {
     const mva = etterRabatt * 0.20
     const prisEtterMva = etterRabatt - mva
     const dekningsbidragKr = prisEtterMva - kostPris
-    const dekningsbidragProsent = dekningsbidragKr / prisEtterMva
+    const dekningsbidragProsent = toDecimal(dekningsbidragKr / prisEtterMva)
     
 
-    console.log('Salgspris på ' + artikkel + ' ' + veilPris + ',-')
+    console.log('Salgspris på ' + veilPris + ',-')
 //    console.log('Rabattprosent, desimal ' + toDecimal(rabattProsentDesimal) + '')
 //    console.log('Betaltprosent, desimal ' + toDecimal(betaltDesimal) + '')
     console.log('Pris etter rabatt ' + noDecimal(etterRabatt) + ',-')
@@ -42,9 +47,14 @@ function kalkyle() {
 //    console.log('Dekningsbidrag i kroner er ' + noDecimal(dekningsbidragKr) + ',-')
     console.log('Dekningsbidrag i % er ' + toDecimal(dekningsbidragProsent) + '%')
 
+    resultTitle.innerHTML = '<b>KALKYLE</b>'
+    resultDom.innerHTML = `Veiledende pris: ${veilPris},-`
 
-    resultTitle.innerText = 'ØNSKET PRISTILBUD'
-    resultDom.innerText = '' + artikkel +' - ' + rabatt + '%  Pris: ' + etterRabatt + ',- ' 
+if (rabatt) {
+    rabattDom.innerHTML = `Salgspris ${etterRabatt},- (${rabatt}%)`
+    }   
+ kalkyleDom.innerHTML = `Salgskalkylen er <b>${dekningsbidragProsent}</b>`
+
     // Sjekk ut Template literals (Template strings) noen med bruk av ` (backtics). Da blir det "penere" og lettere å kode inn tekststrenger
 }
 calculateBtn.addEventListener("click", kalkyle)

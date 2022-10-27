@@ -1,65 +1,68 @@
-const formPris = document.getElementById("inputPris")
-const formArtikkel = document.getElementById("inputArtikkel")
+const inputPris = document.getElementById("inputPris")
+const inputArtikkel = document.getElementById("inputArtikkel")
 const inputBtn = document.getElementById("inputBtn")
-const showInput = dsocument.getElementById('results')
-const resultList = document.getElementById("result-list")
-const storage = window.localStorage // opprett egen variabel med tilgag til localStorage
-const displayArray = JSON.parse(storage.getItem("storeTilbudArray")) // Hent informasjon fra localStorage og parse til JS fra JSON
-const displayTilbudArray = JSON.parse(localStorage.getItem("storeTilbudArray")) 
- // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
+const emptyBtn = document.getElementById("emptyBtn")
+const showInput = document.getElementById('results')
+// opprett egen variabel med tilgang til localStorage
+const storage = window.localStorage
 
-console.log(formArtikkel.value)
+const displayArray = []
+console.log(displayArray)
+function emptyArray() {
+  storage.removeItem("storeTilbudArray")
 
-function input(tilbudArray) {
+  visInputArray()
 
-
-  const inputObject = {
-    artikkel: formArtikkel.value,
-    pris: formPris.value
-  }
- console.log(artikkel)
-  tilbudArray.push(inputObject) // dytt ny verdi inn i prisArray
-
-  //skriver vedier til DOM
-  const visVarePris = tilbudArray.map(element => `Artikkelnavn: ${element.artikkel} Pris: ${element.pris},- `)
-  showInput.innerText = visVarePris.join('\r\n')
-
-
-
-  const storageArray = JSON.stringify(tilbudArray) // opsprett en ny variabel med en JSON-verdi med prisArray som kilde
-  storage.setItem("storeTilbudArray", storageArray) // lagre "prisArray" (key) med storageArray (value) i localStorage
-  console.log({ storageArray })
-
-     
-  // Akkurat nå overskrives verdiene i localStorage hver gang input-funksjonen kjøres (når knappen trykkes)
-  // Mål: hente verdiene som ligger i localStorage, legg til nye verdier/oppdater "gammel" array, oppdater/push nye verdier inn i localStorage
-
-  console.log({storageArray}) 
-  console.log({tilbudArray})
 }
 
-/*
+function lagreInputArray() {
+  // Hent informasjon fra localStorage og parse til JS fra JSON
+  const displayArray = JSON.parse(storage.getItem("storeTilbudArray"))
 
-  if (!displayTilbudArray) {
-    const tilbudArray = []
-    console.log(tilbudArray)
-    console.log(true)
-    inputBtn.addEventListener("click", input(tilbudArray))
-    }
+  const inputObject = {
+    artikkel: inputArtikkel.value,
+    pris: inputPris.value
+  }
 
+  if (!displayArray) {
+    const displayArray = []
+    displayArray.push(inputObject) // dytt ny verdi inn i prisArray
+    // opprett en ny variabel med en JSON-verdi med prisArray som kilde
+    const storageArray = JSON.stringify(displayArray)
+    // lagre "prisArray" (key) med storageArray (value) i localStorage
+    storage.setItem("storeTilbudArray", storageArray) // lagre "prisArray" (key) med storageArray (value) i localStorage
+
+    visInputArray()
+
+  }
   else {
+    displayArray.push(inputObject)
+    const storageArray = JSON.stringify(displayArray)
+    storage.setItem("storeTilbudArray", storageArray)
+  }
 
-    const tilbudArray = displayTilbudArray
-    console.log(tilbudArray)  
-    console.log(false)
-    inputBtn.addEventListener("click", input(tilbudArray))
+  visInputArray()
 
-    }
-
-*/
-
+}
 
 
+function visInputArray() {
+  const displayArray = JSON.parse(storage.getItem("storeTilbudArray"))
+  if (!displayArray) {
+    showInput.innerText = `Ingen resultat`
+  }
+  else {
+    const hentFraLocalStorge = JSON.parse(storage.getItem("storeTilbudArray"))
+    const varePris = hentFraLocalStorge.map((element, i) => `<p id="${i}">#${i + 1} Artikkelnavn: ${element.artikkel} Pris: ${element.pris},- </p>`);
+    showInput.innerHTML = varePris.join('')
+    //Nullstiller skjema
+    inputArtikkel.value = '';
+    inputPris.value = '';
+   
+  }
+}
+visInputArray()
 
 
-
+inputBtn.addEventListener("click", lagreInputArray)
+emptyBtn.addEventListener("click", emptyArray)

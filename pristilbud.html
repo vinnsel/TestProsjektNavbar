@@ -29,18 +29,18 @@
         </div>
     </nav>
     <script src="app.js"></script>
-    <div class="title">OPPRETT PRISTILBUD</div>
+    <div class="title">KALKYLEKALKULATOR</div>
     <div class="form-fields">
         <div class="field">
-            <label for="insertKostPris">Skriv inn kostpris for vare:</label>
+            <label for="insertKostPris">Kostpris: </label>
             <input type="text" id="insertKostPris" name="insertKostPris" required minlength="3" maxlength="5" size="10">
         </div>
         <div class="field">
-            <label for="insertSalgspris">Skriv inn salgspris på vare:</label>
+            <label for="insertSalgspris">Salgspris:</label>
             <input type="text" id="insertSalgsPris" name="insertSalgsPris" required minlength="3" maxlength="5" size="10">
         </div>
         <div class="field">
-            <label for="insertRabatt">Skriv inn salgspris på vare:</label>
+            <label for="insertRabatt">Rabatt:</label>
             <input type="text" id="insertRabatt" name="insertRabatt" required minlength="3" maxlength="5" size="10">
         </div>
         <button id="calculateBtn">Regn ut kalkyle</button>
@@ -51,7 +51,10 @@
         <div id="results">
             Legg inn pristilbud ved å fylle ut feltene over
         </div>
-
+        <div id="rabatt">
+        </div>
+        <div id="kalkyle">
+        </div>
     </div>
     <script src="KalkyleKalkulator.js"></script>
 

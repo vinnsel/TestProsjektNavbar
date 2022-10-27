@@ -16,13 +16,15 @@ const resultDom = document.getElementById('results')
 function calculate() {
   const kmtOutput = kmtInput.value
   const paceOutput = paceInput.value
+  kmtInput.value = ''
+  paceInput.value = ''
 
   if(kmtOutput == '' && paceOutput == '')  {
-    console.log('FYLL INN ET AV FELTENE')
+    alert('FYLL INN ET AV FELTENE')
     
   }  
   if(kmtOutput != '' && paceOutput != '') {
-   console.log('DU KAN BARE FYLLE UT ET AV FELTENE')
+   alert('DU KAN BARE FYLLE UT ET AV FELTENE')
     
   }  
 
@@ -89,7 +91,7 @@ function calculate() {
     console.log(paceOutput);
     console.log(resultOutputSpeed);
   
-  
+
     }
     else {
     }
