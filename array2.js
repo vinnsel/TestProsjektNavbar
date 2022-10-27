@@ -1,11 +1,11 @@
 const inputPris = document.getElementById("inputPris")
 const inputArtikkel = document.getElementById("inputArtikkel")
 const inputBtn = document.getElementById("inputBtn")
-const emptyBtn = document.getElementById("emptyBtn")
+const emptyBtn = document.getElementById("esmptyBtn")
 const showInput = document.getElementById('results')
 // opprett egen variabel med tilgang til localStorage
 const storage = window.localStorage
-
+console.log('hei')
 
 const displayArray = []
 console.log(displayArray)
