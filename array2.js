@@ -1,63 +1,66 @@
 const inputPris = document.getElementById("inputPris")
 const inputArtikkel = document.getElementById("inputArtikkel")
 const inputBtn = document.getElementById("inputBtn")
-const emptyBtn = document.getElementById("emptyBtn")
+const emptyBtn = document.getElementById("esmptyBtn")
 const showInput = document.getElementById('results')
-const storage = window.localStorage // opprett egen variabel med tilgag til localStorage
-const displayArray = JSON.parse(storage.getItem("storeTilbudArray")) // Hent informasjon fra localStorage og parse til JS fra JSON
+// opprett egen variabel med tilgang til localStorage
+const storage = window.localStorage
+console.log('hei')
 
+const displayArray = []
 console.log(displayArray)
 function emptyArray() {
-    const displayArray = ''
-    
-   const storageArray = JSON.stringify(displayArray) // opprett en ny variabel med en JSON-verdi med prisArray som kilde
-   storage.setItem("storeTilbudArray", storageArray)
-   visInputArray()
-   }
+  storage.removeItem("storeTilbudArray")
+
+  visInputArray()
+
+}
 
 function lagreInputArray() {
+  // Hent informasjon fra localStorage og parse til JS fra JSON
+  const displayArray = JSON.parse(storage.getItem("storeTilbudArray"))
 
-        const inputObject = {
-          artikkel: inputArtikkel.value,
-          pris: inputPris.value
-        } 
+  const inputObject = {
+    artikkel: inputArtikkel.value,
+    pris: inputPris.value
+  }
 
-      if (displayArray == '')  {
-        const displayArray = []
-        displayArray.push(inputObject) // dytt ny verdi inn i prisArray
-        const storageArray = JSON.stringify(displayArray) // opprett en ny variabel med en JSON-verdi med prisArray som kilde
-        storage.setItem("storeTilbudArray", storageArray) // lagre "prisArray" (key) med storageArray (value) i localStorage
-        console.log(displayArray)
-        visInputArray()
-      
-      }
-      else {
-        displayArray.push(inputObject) // dytt ny verdi inn i prisArray
-        const storageArray = JSON.stringify(displayArray) // opprett en ny variabel med en JSON-verdi med prisArray som kilde
-        storage.setItem("storeTilbudArray", storageArray) // lagre "prisArray" (key) med storageArray (value) i localStorage
-        console.log(displayArray)
-      }
-visInputArray()
-        
+  if (!displayArray) {
+    const displayArray = []
+    displayArray.push(inputObject) // dytt ny verdi inn i prisArray
+    // opprett en ny variabel med en JSON-verdi med prisArray som kilde
+    const storageArray = JSON.stringify(displayArray)
+    // lagre "prisArray" (key) med storageArray (value) i localStorage
+    storage.setItem("storeTilbudArray", storageArray) // lagre "prisArray" (key) med storageArray (value) i localStorage
 
-      } 
-
-
-    function visInputArray() {
-      
-      if (!displayArray) {
-        showInput.innerText = `Ingen resultat`
-        console.log('Array er ""')
-      }
-      else {
-        console.log('JA')
-      const hentFraLocalStorge = JSON.parse(storage.getItem("storeTilbudArray"))
-      const varePris = hentFraLocalStorge.map(element => `Artikkelnavn: ${element.artikkel} Pris: ${element.pris},- `);
-      showInput.innerText = varePris.join('\r\n')
-    }
-}
     visInputArray()
-   
-   
-   inputBtn.addEventListener("click", lagreInputArray)
-   emptyBtn.addEventListener("click", emptyArray)
+
+  }
+  else {
+    displayArray.push(inputObject)
+    const storageArray = JSON.stringify(displayArray)
+    storage.setItem("storeTilbudArray", storageArray)
+  }
+
+  visInputArray()
+
+}
+
+
+function visInputArray() {
+  const displayArray = JSON.parse(storage.getItem("storeTilbudArray"))
+  if (!displayArray) {
+    showInput.innerText = `Ingen resultat`
+  }
+  else {
+    console.log('JA')
+    const hentFraLocalStorge = JSON.parse(storage.getItem("storeTilbudArray"))
+    const varePris = hentFraLocalStorge.map((element, i) => `<p id="${i}">#${i + 1} Artikkelnavn: ${element.artikkel} Pris: ${element.pris},- </p>`);
+    showInput.innerHTML = varePris.join('')
+  }
+}
+visInputArray()
+
+
+inputBtn.addEventListener("click", lagreInputArray)
+emptyBtn.addEventListener("click", emptyArray)
