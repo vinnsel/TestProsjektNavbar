@@ -9,6 +9,7 @@ const displayArray = JSON.parse(storage.getItem("storeTilbudArray")) // Hent inf
 console.log(displayArray)
 function emptyArray() {
     const displayArray = ''
+    
    const storageArray = JSON.stringify(displayArray) // opprett en ny variabel med en JSON-verdi med prisArray som kilde
    storage.setItem("storeTilbudArray", storageArray)
    visInputArray()
@@ -46,7 +47,7 @@ visInputArray()
       
       if (!displayArray) {
         showInput.innerText = `Ingen resultat`
-        console.log('nei')
+        console.log('Array er ""')
       }
       else {
         console.log('JA')
