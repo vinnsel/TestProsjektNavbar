@@ -1,11 +1,10 @@
 const inputPris = document.getElementById("inputPris")
 const inputArtikkel = document.getElementById("inputArtikkel")
 const inputBtn = document.getElementById("inputBtn")
-const emptyBtn = document.getElementById("esmptyBtn")
+const emptyBtn = document.getElementById("emptyBtn")
 const showInput = document.getElementById('results')
 // opprett egen variabel med tilgang til localStorage
 const storage = window.localStorage
-console.log('hei')
 
 const displayArray = []
 console.log(displayArray)
@@ -53,10 +52,13 @@ function visInputArray() {
     showInput.innerText = `Ingen resultat`
   }
   else {
-    console.log('JA')
     const hentFraLocalStorge = JSON.parse(storage.getItem("storeTilbudArray"))
     const varePris = hentFraLocalStorge.map((element, i) => `<p id="${i}">#${i + 1} Artikkelnavn: ${element.artikkel} Pris: ${element.pris},- </p>`);
     showInput.innerHTML = varePris.join('')
+    //Nullstiller skjema
+    inputArtikkel.value = '';
+    inputPris.value = '';
+   
   }
 }
 visInputArray()
