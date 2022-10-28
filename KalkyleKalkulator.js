@@ -12,6 +12,8 @@ const rabattDom = document.getElementById('rabatt')
 // if salgspris tom feil
 
 
+//https://tailwindcss.com/docs/container
+
 // KALKYLEKALKULATOR
 // Regner om desimaler
 function noDecimal(ingenDesimaler) {
