@@ -70,8 +70,3 @@ function kalkyle() {
     }
 }
 //calculateBtn.addEventListener("click", kalkyle)
-
-const obj1 = { ini: "aøl", initialer: true }
-const obj2 = { pris: 50 }
-const obj3 = { ...obj2, ...obj1 }
-console.log(obj3) // {ini: "aøl", initialer: true, pris: 50}
