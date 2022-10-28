@@ -53,8 +53,10 @@ function visInputArray() {
   }
   else {
     const hentFraLocalStorge = JSON.parse(storage.getItem("storeTilbudArray"))
-    const varePris = hentFraLocalStorge.map((element, i) => `<p id="${i}">#${i + 1} Artikkelnavn: ${element.artikkel} Pris: ${element.pris},- </p>`);
+    const varePris = hentFraLocalStorge.map((element, i) => `<p id="${i}">#${i + 1} Artikkelnavn: ${element.artikkel} 
+    Pris: ${element.pris},- <button id="deleteBtn">X</button></p> `);
     showInput.innerHTML = varePris.join('')
+    console.log(i)
     //Nullstiller skjema
     inputArtikkel.value = '';
     inputPris.value = '';
