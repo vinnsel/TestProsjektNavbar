@@ -29,13 +29,14 @@ function kalkyle() {
     const veilPris = insertSalgsPris.value
     const rabatt = insertRabatt.value
 
-    const rabattProsentDesimal = rabatt / 100
+    const rabattProsentDesimal = toDecimal(rabatt / 100)
     const betaltDesimal = 1 - rabattProsentDesimal
     const etterRabatt = veilPris * betaltDesimal
     const mva = etterRabatt * 0.20
     const prisEtterMva = etterRabatt - mva
     const dekningsbidragKr = prisEtterMva - kostPris
-    const dekningsbidragProsent = toDecimal(dekningsbidragKr / prisEtterMva)
+    const dekninsgsbidragDesimal = toDecimal(dekningsbidragKr / prisEtterMva)
+    const dekningsbidragProsent = noDecimal(dekninsgsbidragDesimal * 100)
 
 
     console.log('Salgspris på ' + veilPris + ',-')
@@ -61,7 +62,7 @@ function kalkyle() {
             resultDom.innerHTML = `Utgangspris pris: ${veilPris},- (${rabatt}%)`
             rabattDom.innerHTML = `Justert salgspris etter rabatt <b>${etterRabatt},-</b>`
         }
-        kalkyleDom.innerHTML = `Salgskalkylen er <b>${dekningsbidragProsent}</b>`
+        kalkyleDom.innerHTML = `Salgskalkylen er <b>${dekningsbidragProsent}%</b>`
 
         // Sjekk ut Template literals (Template strings) noen med bruk av ` (backtics). Da blir det "penere" og lettere å kode inn tekststrenger
     }
