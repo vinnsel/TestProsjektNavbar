@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins" rel="stylesheet">
     <title>JavascriptProsjekt</title>
 </head>
+
 <body>
     <nav>
         <div class="logo">
@@ -19,13 +21,13 @@
             <li><a href="kvittering.html">Kvittering</a></li>
             <li><a href="pacecalculator.html">Pacecalculator</a></li>
             <li><a href="array.html">Array</a></li>
-            
+
         </ul>
         <div class="burger">
             <div class="line1"></div>
             <div class="line2"></div>
             <div class="line3"></div>
-          
+
         </div>
     </nav>
     <script src="app.js"></script>
@@ -33,17 +35,19 @@
     <div class="form-fields">
         <div class="field">
             <label for="insertKostPris">Kostpris: </label>
-            <input type="text" id="insertKostPris" name="insertKostPris" required minlength="3" maxlength="5" size="10">
+            <input onkeyup=kalkyle() type="text" id="insertKostPris" name="insertKostPris" required minlength="3"
+                maxlength="5" size="10">
         </div>
         <div class="field">
             <label for="insertSalgspris">Salgspris:</label>
-            <input type="text" id="insertSalgsPris" name="insertSalgsPris" required minlength="3" maxlength="5" size="10">
+            <input onkeyup=kalkyle() type="text" id="insertSalgsPris" name="insertSalgsPris" required minlength="3"
+                maxlength="5" size="10">
         </div>
         <div class="field">
             <label for="insertRabatt">Rabatt:</label>
-            <input type="text" id="insertRabatt" name="insertRabatt" required minlength="3" maxlength="5" size="10">
+            <input id="insertRabatt" name="insertRabatt" maxlength="3" size="5" onkeyup=kalkyle()>
+            %
         </div>
-        <button id="calculateBtn">Regn ut kalkyle</button>
     </div>
 
     <div class="bottom-frame">
@@ -62,4 +66,5 @@
 
 
 </body>
+
 </html>

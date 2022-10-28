@@ -8,9 +8,9 @@ const kalkyleDom = document.getElementById('kalkyle')
 const rabattDom = document.getElementById('rabatt')
 
 // if salgspris og kostpris tom alert. fyll ut felter
- // if kostpris tom feil
- // if salgspris tom feil
- 
+// if kostpris tom feil
+// if salgspris tom feil
+
 
 // KALKYLEKALKULATOR
 // Regner om desimaler
@@ -36,25 +36,34 @@ function kalkyle() {
     const prisEtterMva = etterRabatt - mva
     const dekningsbidragKr = prisEtterMva - kostPris
     const dekningsbidragProsent = toDecimal(dekningsbidragKr / prisEtterMva)
-    
+
 
     console.log('Salgspris på ' + veilPris + ',-')
-//    console.log('Rabattprosent, desimal ' + toDecimal(rabattProsentDesimal) + '')
-//    console.log('Betaltprosent, desimal ' + toDecimal(betaltDesimal) + '')
+    //    console.log('Rabattprosent, desimal ' + toDecimal(rabattProsentDesimal) + '')
+    //    console.log('Betaltprosent, desimal ' + toDecimal(betaltDesimal) + '')
     console.log('Pris etter rabatt ' + noDecimal(etterRabatt) + ',-')
-//    console.log('Pris etter rabatt og mva ' + noDecimal(prisEtterMva) + ',-')
-//    console.log('Mva ' + noDecimal(mva) + ',-')
-//    console.log('Dekningsbidrag i kroner er ' + noDecimal(dekningsbidragKr) + ',-')
+    //    console.log('Pris etter rabatt og mva ' + noDecimal(prisEtterMva) + ',-')
+    //    console.log('Mva ' + noDecimal(mva) + ',-')
+    //    console.log('Dekningsbidrag i kroner er ' + noDecimal(dekningsbidragKr) + ',-')
     console.log('Dekningsbidrag i % er ' + toDecimal(dekningsbidragProsent) + '%')
 
-    resultTitle.innerHTML = '<b>KALKYLE</b>'
-    resultDom.innerHTML = `Veiledende pris: ${veilPris},-`
+    if (!kostPris || !veilPris) {
 
-if (rabatt) {
-    rabattDom.innerHTML = `Salgspris ${etterRabatt},- (${rabatt}%)`
-    }   
- kalkyleDom.innerHTML = `Salgskalkylen er <b>${dekningsbidragProsent}</b>`
+    }
+    else {
 
-    // Sjekk ut Template literals (Template strings) noen med bruk av ` (backtics). Da blir det "penere" og lettere å kode inn tekststrenger
+
+        resultTitle.innerHTML = '<b>KALKYLE</b>'
+        resultDom.innerHTML = `Utgangspris pris: ${veilPris},-`
+
+
+        if (rabatt) {
+            resultDom.innerHTML = `Utgangspris pris: ${veilPris},- (${rabatt}%)`
+            rabattDom.innerHTML = `Justert salgspris etter rabatt <b>${etterRabatt},-</b>`
+        }
+        kalkyleDom.innerHTML = `Salgskalkylen er <b>${dekningsbidragProsent}</b>`
+
+        // Sjekk ut Template literals (Template strings) noen med bruk av ` (backtics). Da blir det "penere" og lettere å kode inn tekststrenger
+    }
 }
-calculateBtn.addEventListener("click", kalkyle)
+//calculateBtn.addEventListener("click", kalkyle)
