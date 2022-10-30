@@ -1,20 +1,22 @@
 const inputPris = document.getElementById("inputPris")
 const inputArtikkel = document.getElementById("inputArtikkel")
 const inputBtn = document.getElementById("inputBtn")
-const emptyBtn = document.getElementById("emptyBtn")
+//const emptyBtn = document.getElementById("emptyBtn")
 const showInput = document.getElementById('results')
 const arrayLength = document.getElementById('arrayLength')
+const tellProdukter = document.getElementById('tellProdukter')
+const slettListe = document.getElementById('slettListe')
 // opprett egen variabel med tilgang til localStorage
 const storage = window.localStorage
 
 const displayArray = []
-console.log(displayArray)
 function emptyArray() {
   storage.removeItem("storeTilbudArray")
 
   visInputArray()
 
 }
+
 
 function lagreInputArray() {
   // Hent informasjon fra localStorage og parse til JS fra JSON
@@ -45,11 +47,11 @@ function lagreInputArray() {
   visInputArray()
 
 }
-
 function remove_element(index_no){
-  test = displayArray.splice(index_no,1)
-  console.log(test)
-
+  const displayArray = JSON.parse(storage.getItem("storeTilbudArray"))
+  displayArray.splice(index_no, 1);
+  const storageArray = JSON.stringify(displayArray)
+  storage.setItem("storeTilbudArray", storageArray)
   
   visInputArray()
 }
@@ -59,29 +61,23 @@ function visInputArray() {
   const displayArray = JSON.parse(storage.getItem("storeTilbudArray"))
   if (!displayArray) {
     showInput.innerText = `Ingen resultat`
+    tellProdukter.innerHTML = ''
+    slettListe.innerHTML = ''
   }
   else {
     const hentFraLocalStorge = JSON.parse(storage.getItem("storeTilbudArray"))
-    let str='';
-    str = 'Antall: ' + hentFraLocalStorge.length + '<br>';
+    let prisArray='';
+    antallProdukter = 'Antall produkter i listen: ' + hentFraLocalStorge.length + '<br>';
     for (let i=0; i < hentFraLocalStorge.length; i++) {
 
-      
-      str += i + ':'+ hentFraLocalStorge[i].pris + " <a href=# onClick='remove_element("+hentFraLocalStorge.indexOf(hentFraLocalStorge[i])+")'> Remove</a> " + "<br >";  // adding each element with key number to variable
-//      let varePris = hentFraLocalStorge[i].pris
-//      console.log(hentFraLocalStorge[i])
-      console.log(hentFraLocalStorge[i].pris)
-//      varePris = hentFraLocalStorge.pris
-      showInput.innerHTML = str
-
+    prisArray  += `Artikkel:  ${hentFraLocalStorge[i].artikkel} har en pris på ${hentFraLocalStorge[i].pris},- <a href=# onClick="remove_element(${i})">Slett</a> <br >` 
+    showInput.innerHTML = prisArray
+    tellProdukter.innerHTML = antallProdukter
+    slettListe.innerHTML = `<button id="emptyBtn">Slett hele listen</button>`
+    
       
     } 
 
-
-
-//    const varePris = hentFraLocalStorge.map((element, i) => `<p id="${i}">#${i + 1} Artikkelnavn: ${element.artikkel} 
-//    Pris: ${element.pris},- <a href=# onClick="remove_element('${i}')">Slett</a> `);
-//    showInput.innerHTML = varePris.join('')
     //Nullstiller skjema
     inputArtikkel.value = '';
     inputPris.value = '';
@@ -93,22 +89,3 @@ visInputArray()
 
 inputBtn.addEventListener("click", lagreInputArray)
 emptyBtn.addEventListener("click", emptyArray)
-
-/*
-const inputNum = 9
-testArray = [1, 4, 5, 6]
-testArray.push(inputNum)
-console.log(testArray)
-delete testArray[1];
-console.log(testArray)
-testArray.push(inputNum)
-console.log(testArray)
-console.log(testArray.indexOf(5))
-console.log(testArray.length)
-//showInput.innerText = `Ingen ${testArray}`
-
-for (let i=0; i < testArray.length; i++) {
-  console.log(testArray[i])
-}
-*/
-//video 1:58
