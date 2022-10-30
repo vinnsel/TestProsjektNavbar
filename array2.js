@@ -3,7 +3,6 @@ const inputArtikkel = document.getElementById("inputArtikkel")
 const inputBtn = document.getElementById("inputBtn")
 const emptyBtn = document.getElementById("emptyBtn")
 const showInput = document.getElementById('results')
-const arrayLength = document.getElementById('arrayLength')
 // opprett egen variabel med tilgang til localStorage
 const storage = window.localStorage
 
@@ -46,13 +45,7 @@ function lagreInputArray() {
 
 }
 
-function remove_element(index_no){
-  test = displayArray.splice(index_no,1)
-  console.log(test)
 
-  
-  visInputArray()
-}
 
 
 function visInputArray() {
@@ -62,26 +55,9 @@ function visInputArray() {
   }
   else {
     const hentFraLocalStorge = JSON.parse(storage.getItem("storeTilbudArray"))
-    let str='';
-    str = 'Antall: ' + hentFraLocalStorge.length + '<br>';
-    for (let i=0; i < hentFraLocalStorge.length; i++) {
-
-      
-      str += i + ':'+ hentFraLocalStorge[i].pris + " <a href=# onClick='remove_element("+hentFraLocalStorge.indexOf(hentFraLocalStorge[i])+")'> Remove</a> " + "<br >";  // adding each element with key number to variable
-//      let varePris = hentFraLocalStorge[i].pris
-//      console.log(hentFraLocalStorge[i])
-      console.log(hentFraLocalStorge[i].pris)
-//      varePris = hentFraLocalStorge.pris
-      showInput.innerHTML = str
-
-      
-    } 
-
-
-
-//    const varePris = hentFraLocalStorge.map((element, i) => `<p id="${i}">#${i + 1} Artikkelnavn: ${element.artikkel} 
-//    Pris: ${element.pris},- <a href=# onClick="remove_element('${i}')">Slett</a> `);
-//    showInput.innerHTML = varePris.join('')
+    const varePris = hentFraLocalStorge.map((element, i) => `<p id="${i}">#${i + 1} Artikkelnavn: ${element.artikkel} 
+    Pris: ${element.pris},- <a href=# onClick="remove_element('${i}')">Slett</a> `);
+    showInput.innerHTML = varePris.join('')
     //Nullstiller skjema
     inputArtikkel.value = '';
     inputPris.value = '';
