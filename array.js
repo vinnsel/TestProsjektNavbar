@@ -62,7 +62,7 @@ function visInputArray() {
   if (!displayArray) {
     showInput.innerText = `Ingen resultat`
     tellProdukter.innerHTML = ''
-    slettListe.innerHTML = ''
+//    slettListe.innerHTML = ''
   }
   else {
     const hentFraLocalStorge = JSON.parse(storage.getItem("storeTilbudArray"))
