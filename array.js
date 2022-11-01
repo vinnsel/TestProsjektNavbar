@@ -1,7 +1,7 @@
 const inputPris = document.getElementById("inputPris")
 const inputArtikkel = document.getElementById("inputArtikkel")
 const inputBtn = document.getElementById("inputBtn")
-//const emptyBtn = document.getElementById("emptyBtn")
+const emptyBtn = document.getElementById("emptyBtn")
 const showInput = document.getElementById('results')
 const arrayLength = document.getElementById('arrayLength')
 const tellProdukter = document.getElementById('tellProdukter')
@@ -59,23 +59,25 @@ function remove_element(index_no){
 
 function visInputArray() {
   const displayArray = JSON.parse(storage.getItem("storeTilbudArray"))
-  if (!displayArray) {
+  if (displayArray == '' || !displayArray) {
     showInput.innerText = `Ingen resultat`
     tellProdukter.innerHTML = ''
-//    slettListe.innerHTML = ''
   }
   else {
     const hentFraLocalStorge = JSON.parse(storage.getItem("storeTilbudArray"))
     let prisArray='';
     antallProdukter = 'Antall produkter i listen: ' + hentFraLocalStorge.length + '<br>';
+    sum = 0
     for (let i=0; i < hentFraLocalStorge.length; i++) {
 
-    prisArray  += `Artikkel:  ${hentFraLocalStorge[i].artikkel} har en pris på ${hentFraLocalStorge[i].pris},- <a href=# onClick="remove_element(${i})">Slett</a> <br >` 
+    prisArray  += `Artikkel:  ${hentFraLocalStorge[i].artikkel} har en pris på ${hentFraLocalStorge[i].pris},- <button onClick="remove_element(${i})">X</button> <br >` 
     showInput.innerHTML = prisArray
     tellProdukter.innerHTML = antallProdukter
-    slettListe.innerHTML = `<button id="emptyBtn">Slett hele listen</button>`
-    
-      
+    const pris = Number(hentFraLocalStorge[i].pris)
+    const totalt = sum += pris
+    antallProdukter = 'Totalpris er: ' + totalt + '<br>';
+
+
     } 
 
     //Nullstiller skjema
@@ -85,7 +87,6 @@ function visInputArray() {
   }
 }
 visInputArray()
-
 
 inputBtn.addEventListener("click", lagreInputArray)
 emptyBtn.addEventListener("click", emptyArray)

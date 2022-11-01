@@ -70,21 +70,4 @@ visInputArray()
 inputBtn.addEventListener("click", lagreInputArray)
 emptyBtn.addEventListener("click", emptyArray)
 
-/*
-const inputNum = 9
-testArray = [1, 4, 5, 6]
-testArray.push(inputNum)
-console.log(testArray)
-delete testArray[1];
-console.log(testArray)
-testArray.push(inputNum)
-console.log(testArray)
-console.log(testArray.indexOf(5))
-console.log(testArray.length)
-//showInput.innerText = `Ingen ${testArray}`
-
-for (let i=0; i < testArray.length; i++) {
-  console.log(testArray[i])
-}
-*/
 //video 1:58
